@@ -19,5 +19,18 @@ def input_courses():
         name = input("Enter course name: ")
         courses.append((c_id, name)) #add to the tuple
         print("Courses added successfully\n")
-
+#
+def input_marks():
+    course_id = input("Enter the course ID to input marks: ")
+    if not any(course[0] == course_id for course in courses):
+        print("Course not found\n")
+        return
+#create dictionary save mark
+    course_marks = {}
+    for student in students:
+        student_id, name, _ = student #create tuple
+        mark = float(input(f"Enter mark for {name} (ID: {student_id}): "))
+        course_marks[student_id] = mark
+    marks[course_id] = course_marks
+    print("Marks added successfully\n")
 #In progress
